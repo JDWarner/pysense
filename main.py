@@ -44,7 +44,7 @@ class Pysense(Pycoproc):
 
 # Initialize sensors
 py = Pysense()
-mp = MPL3115A2(py,mode=ALTITUDE) # Returns height in meters. Mode may also be set to PRESSURE, returning a value in Pascals
+mp = MPL3115A2(py, mode=ALTITUDE) # Returns height in meters. Mode may also be set to PRESSURE, returning a value in Pascals
 si = SI7006A20(py)
 lt = LTR329ALS01(py)
 li = LIS2HH12(py)
