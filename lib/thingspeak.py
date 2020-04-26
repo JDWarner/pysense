@@ -3,7 +3,7 @@ import machine
 
 from mqtt import MQTTClient
 from datapoint import DataPoint
-from keychain1 import *
+from keychain2 import *
 
 def send_to_thingspeak(datapoints):
     # data = DataPoint(datapoints)
