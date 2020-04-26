@@ -66,10 +66,10 @@ print("Pressure: " + str(pressure))
 temp_si = si.temperature()
 humidity = si.humidity()
 dewpoint = si.dew_point()
-humid_ambient = si.humid_ambient(temp_si)
+humidity_ambient = si.humid_ambient(temp_si)
 print("Temperature: " + str(temp_si)+ " deg C and Relative Humidity: " + str(humidity) + " %RH")
 print("Dew point: "+ str(dewpoint) + " C")
-print("Humidity Ambient for " + str(temp_si) + " C is " + str() + " %RH")
+print("Humidity Ambient for " + str(temp_si) + " C is " + str(humidity_ambient) + " %RH")
 
 light = lt.light()
 print("Light (channel Blue lux, channel Red lux): " + str(light[0]/2. + light[1]/2.))
@@ -84,14 +84,15 @@ print("\nSending data to ThingSpeak...")
 time_alive = alive_timer.read_ms()
 timestamp = utime.time()
 
-datapoint = DataPoint(timestamp=timestamp, 
-                      temp_mp=temp_mp, 
+datapoint = DataPoint(timestamp=timestamp,
+                      temp_mp=temp_mp,
                       temp_si=temp_si,
                       humidity=humidity,
                       altitude=altitude,
                       pressure=pressure,
                       dewpoint=dewpoint,
-                      light=light[0]/2. + light[1]/2.)
+                      light=light[0]/2. + light[1]/2.,
+                      humidity_ambient=humidity_ambient)
 
 send_to_thingspeak(datapoint)
 

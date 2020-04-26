@@ -2,7 +2,7 @@ import utime
 import machine
 import pycom
 from network import WLAN
-from keychain3 import *
+from keychain2 import *
 
 __all__ = ['connect_to_WLAN',
            'setup_rtc',

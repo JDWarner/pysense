@@ -1,7 +1,7 @@
 class DataPoint:
 
     __slots__ = ['timestamp', 'temp_mp', 'temp_si', 'humidity', 
-                 'pressure', 'altitude', 'dewpoint', 'light']
+                 'pressure', 'altitude', 'dewpoint', 'light', 'humidity_ambient']
 
     def __init__(self, **kwargs):
         required = list(self.__slots__)
@@ -12,14 +12,15 @@ class DataPoint:
             raise ValueError("Not enough values passed! Missing: {}".format(required))
 
     def to_thingspeak(self):
-        return 'field1={}&field2={}&field3={}&field4={}&field5={}&field6={}&field7={}'.format(
-            self.temp_mp, 
-            self.temp_si, 
-            self.humidity, 
-            self.pressure, 
-            self.altitude, 
+        return 'field1={}&field2={}&field3={}&field4={}&field5={}&field6={}&field7={}&field8={}'.format(
+            self.temp_mp,
+            self.temp_si,
+            self.humidity,
+            self.pressure,
+            self.altitude,
             self.dewpoint,
             self.light,
+            self.humidity_ambient,
             )
 
     @classmethod
